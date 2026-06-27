@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light" />
+<title>The House That Cotton Built — The Exchange Building, Memphis</title>
+<meta name="description" content="An editorial feature on the Memphis Merchants' & Cotton Exchange Building (1910) — engine room of the cotton capital of the world, and its new life in the age of AI and blockchain." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: only light;
+    --ink:#19150F;
+    --ink-soft:#403829;
+    --paper:#E9E3D5;
+    --marble:#F4F0E6;
+    --brick:#9B3A2C;
+    --brick-deep:#6F291F;
+    --brass:#8A6628; /* darkened for AA on paper */
+    --brass-light:#CBA15A;
+    --verdigris:#355E51;
+    --verdigris-deep:#1F3A33;
+    --slate:#15120D;
+    --chalk:#E8E3D4;
+    --rule:rgba(25,21,15,.16);
+    --rule-strong:rgba(25,21,15,.34);
+
+    --display:'Fraunces',Georgia,serif;
+    --body:'Newsreader',Georgia,serif;
+    --mono:'Space Mono','Courier New',monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;background:var(--paper);}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:clamp(1.06rem,.55rem + .85vw,1.28rem);
+    line-height:1.62;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--brick);color:var(--marble);}
+
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .measure{max-width:680px;margin-left:auto;margin-right:auto;}
+
+  /* ---------- Eyebrows / labels ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--brick);
+  }
+  .eyebrow .dot{color:var(--brass);padding:0 .35em;}
+
+  /* ---------- Masthead / cover ---------- */
+  .masthead{
+    border-bottom:1.5px solid var(--ink);
+    background:var(--paper);
+  }
+  .masthead .wrap{
+    display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    padding-top:16px;padding-bottom:14px;flex-wrap:wrap;
+  }
+  .masthead-title{
+    font-family:var(--mono);
+    text-transform:uppercase;
+    letter-spacing:.26em;
+    font-size:.72rem;
+    font-weight:700;
+  }
+  .masthead-meta{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Hero / quotation board ---------- */
+  .hero{
+    background:var(--slate);
+    color:var(--chalk);
+    position:relative;
+    border-bottom:6px solid var(--brick);
+    overflow:hidden;
+  }
+  .hero::before{
+    /* faint chalk grid, like a ruled board */
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(232,227,212,.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(232,227,212,.05) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(120% 90% at 50% 30%,#000 55%,transparent 100%);
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;padding-top:54px;padding-bottom:46px;}
+  .hero-kicker{
+    color:var(--brass-light);
+    margin-bottom:30px;
+  }
+  .hero-kicker .yr{color:var(--chalk);}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-optical-sizing:auto;
+    font-size:clamp(3rem,1.1rem + 8.6vw,7.2rem);
+    line-height:.92;
+    letter-spacing:-.018em;
+    margin:0 0 .14em;
+    max-width:13ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--brass-light);
+  }
+  .hero-deck{
+    font-family:var(--body);
+    font-size:clamp(1.12rem,.75rem + .8vw,1.5rem);
+    line-height:1.5;
+    color:#D9D3C2;
+    max-width:46ch;
+    margin:0 0 40px;
+    font-weight:400;
+  }
+  .hero-deck b{color:var(--chalk);font-weight:600;}
+
+  /* board of "quotes" */
+  .board{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid rgba(232,227,212,.22);
+    border-left:1px solid rgba(232,227,212,.22);
+  }
+  .quote{
+    border-right:1px solid rgba(232,227,212,.22);
+    border-bottom:1px solid rgba(232,227,212,.22);
+    padding:16px 18px 18px;
+  }
+  .quote .q-label{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass-light);
+    display:block;margin-bottom:8px;
+  }
+  .quote .q-val{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.25rem,.7rem + 1.4vw,1.85rem);
+    line-height:1.02;
+    letter-spacing:-.01em;
+  }
+  .quote .q-sub{
+    font-family:var(--mono);
+    font-size:.6rem;
+    letter-spacing:.08em;
+    color:#A49C8A;
+    margin-top:6px;
+    text-transform:uppercase;
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker{
+    background:var(--ink);
+    color:var(--chalk);
+    border-bottom:1px solid var(--brass);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:9px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    will-change:transform;
+    animation:scroll-x 38s linear infinite;
+    font-family:var(--mono);
+    font-size:.68rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .ticker-track span{padding:0 .2em;}
+  .ticker-track .g{color:var(--brass-light);}
+  .ticker-track .sep{color:var(--brick);padding:0 1.1em;}
+  @keyframes scroll-x{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- Article body ---------- */
+  .article{padding:72px 0 40px;}
+  section.block{margin-bottom:66px;}
+
+  .section-head{margin-bottom:26px;}
+  .section-head .eyebrow{display:block;margin-bottom:14px;}
+  h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-optical-sizing:auto;
+    font-size:clamp(1.9rem,1rem + 2.7vw,3.1rem);
+    line-height:1.02;
+    letter-spacing:-.014em;
+    margin:0;
+    max-width:18ch;
+  }
+  h2 em{font-style:italic;font-weight:500;color:var(--brick);}
+
+  p{margin:0 0 1.15em;}
+  .measure p:last-child{margin-bottom:0;}
+
+  .lede > p:first-of-type{font-size:1.06em;}
+  .dropcap::first-letter{
+    font-family:var(--display);
+    font-weight:600;
+    float:left;
+    font-size:4.7em;
+    line-height:.72;
+    padding:.05em .12em 0 0;
+    color:var(--brick);
+  }
+
+  .lead-note{
+    font-family:var(--mono);
+    font-size:.74rem;
+    line-height:1.7;
+    letter-spacing:.02em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    border-left:2px solid var(--brass);
+    padding:4px 0 4px 16px;
+    margin:0 0 0;
+  }
+
+  /* ---------- Figures / plates ---------- */
+  figure{margin:0;}
+  .plate-wide{margin:46px auto;max-width:1000px;}
+  .plate-frame{
+    background:var(--marble);
+    border:1px solid var(--rule-strong);
+    padding:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset, 0 16px 40px -28px rgba(25,21,15,.6);
+  }
+  .plate-img{
+    position:relative;
+    background:
+      repeating-linear-gradient(45deg,#dcd5c4 0 10px,#d6cfbd 10px 20px);
+    border:1px solid var(--rule);
+    min-height:120px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .plate-img img{width:100%;height:auto;}
+  .plate-img.img-missing img{display:none;}
+  .plate-img.img-missing{min-height:240px;}
+  .plate-img.img-missing::after{
+    content:"PLATE  " attr(data-file);
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:.18em;
+    color:var(--ink-soft);
+    padding:14px 18px;
+    text-align:center;
+    background:rgba(244,240,230,.92);
+    border:1px dashed var(--rule-strong);
+    border-radius:2px;
+  }
+  figcaption{
+    font-family:var(--mono);
+    font-size:.72rem;
+    line-height:1.55;
+    letter-spacing:.01em;
+    color:var(--ink-soft);
+    margin-top:12px;
+    display:flex;gap:14px;
+    border-top:1px solid var(--rule);
+    padding-top:10px;
+  }
+  figcaption .plate-no{
+    color:var(--brick);
+    font-weight:700;
+    white-space:nowrap;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+  }
+  figcaption .cred{display:block;margin-top:6px;color:var(--brass);text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:700;}
+
+  /* ---------- Construction timeline rail ---------- */
+  .timeline-intro{margin-bottom:24px;}
+  .rail{
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:minmax(230px,1fr);
+    gap:16px;
+    overflow-x:auto;
+    padding:6px 4px 20px;
+    scroll-snap-type:x mandatory;
+    scrollbar-color:var(--brick) var(--rule);
+  }
+  .rail::-webkit-scrollbar{height:8px;}
+  .rail::-webkit-scrollbar-track{background:var(--rule);}
+  .rail::-webkit-scrollbar-thumb{background:var(--brick);}
+  .rail-card{scroll-snap-align:start;}
+  .rail-card .plate-frame{padding:10px;height:100%;}
+  .rail-date{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:.82rem;
+    letter-spacing:.12em;
+    color:var(--brick);
+    margin-bottom:8px;
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .rail-date .step{color:var(--brass);font-size:.66rem;}
+  .rail-cap{
+    font-family:var(--mono);
+    font-size:.68rem;
+    line-height:1.5;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+  .rail-hint{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--brass);margin-top:2px;font-weight:700;
+  }
+
+  /* ---------- Pull quote ---------- */
+  .pull{
+    margin:60px auto;
+    max-width:880px;
+    text-align:center;
+    padding:0 8px;
+  }
+  .pull p{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.7rem,.9rem + 2.6vw,2.9rem);
+    line-height:1.16;
+    letter-spacing:-.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  .pull .mark{color:var(--brick);font-style:normal;}
+  .pull cite{
+    display:block;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-top:22px;
+  }
+
+  /* ---------- Ledger / statement panel ---------- */
+  .ledger{
+    background:var(--slate);
+    color:var(--chalk);
+    padding:54px 0 56px;
+    border-top:6px solid var(--brass);
+    border-bottom:6px solid var(--brass);
+    margin:60px 0;
+  }
+  .ledger .eyebrow{color:var(--brass-light);}
+  .ledger h2{color:var(--marble);}
+  .ledger h2 em{color:var(--brass-light);}
+  .ledger-intro{color:#D6D0BF;}
+  .statement{
+    border-top:1px solid rgba(232,227,212,.28);
+    margin-top:30px;
+  }
+  .line{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:18px;
+    align-items:baseline;
+    padding:16px 0;
+    border-bottom:1px solid rgba(232,227,212,.16);
+  }
+  .line .li-term{
+    font-family:var(--body);
+    font-size:1.04rem;
+    color:#E8E3D4;
+    max-width:48ch;
+  }
+  .line .li-term small{
+    display:block;
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#9C9482;
+    margin-top:4px;
+  }
+  .line .li-val{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.3rem,.8rem + 1.5vw,2.05rem);
+    line-height:1;
+    color:var(--brass-light);
+    text-align:right;
+    white-space:nowrap;
+  }
+  .statement-foot{
+    font-family:var(--mono);
+    font-size:.66rem;
+    line-height:1.7;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:#8C8472;
+    margin-top:22px;
+  }
+
+  /* ---------- Forward / chain section ---------- */
+  .chain{
+    background:var(--verdigris-deep);
+    color:#E7E9E2;
+    padding:70px 0 64px;
+    border-top:6px solid var(--verdigris);
+  }
+  .chain .eyebrow{color:#9EC3B4;}
+  .chain .eyebrow .dot{color:var(--brass-light);}
+  .chain h2{color:#F1F3EC;}
+  .chain h2 em{color:#9EC3B4;}
+  .chain p{color:#D3D8CF;}
+  .chain p b{color:#fff;font-weight:600;}
+  .chain a.inl{color:#A9D3C3;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
+
+  .links{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1px;
+    background:rgba(158,195,180,.28);
+    border:1px solid rgba(158,195,180,.28);
+    margin:38px 0 8px;
+  }
+  .link-cell{
+    background:var(--verdigris-deep);
+    padding:22px 20px 24px;
+  }
+  .link-cell .lc-no{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;color:var(--brass-light);
+    text-transform:uppercase;display:block;margin-bottom:12px;
+  }
+  .link-cell h3{
+    font-family:var(--display);font-weight:600;font-size:1.32rem;line-height:1.1;
+    margin:0 0 8px;color:#F1F3EC;letter-spacing:-.01em;
+  }
+  .link-cell p{font-size:.96rem;line-height:1.5;margin:0;color:#C4CBC1;}
+
+  .caveat{
+    font-family:var(--mono);
+    font-size:.72rem;line-height:1.7;letter-spacing:.02em;
+    color:#9DB0A6;text-transform:uppercase;
+    border-left:2px solid var(--brass-light);
+    padding-left:16px;margin-top:34px;
+  }
+
+  /* ---------- Coda ---------- */
+  .coda{padding:78px 0 30px;}
+  .coda .measure > p{font-size:1.04em;}
+  .coda .sign{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--brick);margin-top:34px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer.doc{
+    border-top:1.5px solid var(--ink);
+    background:var(--paper);
+    padding:34px 0 60px;
+  }
+  footer.doc .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .colophon{
+    font-family:var(--mono);font-size:.68rem;line-height:1.8;letter-spacing:.04em;
+    color:var(--ink-soft);text-transform:uppercase;max-width:62ch;
+  }
+  .colophon b{color:var(--ink);}
+  .sources{
+    font-family:var(--mono);font-size:.64rem;line-height:1.85;letter-spacing:.03em;
+    color:var(--ink-soft);max-width:34ch;
+  }
+  .sources span{display:block;text-transform:uppercase;letter-spacing:.14em;color:var(--brick);margin-bottom:8px;}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+  .stagger > *{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+  .stagger.in > *{opacity:1;transform:none;}
+  .stagger.in > *:nth-child(2){transition-delay:.06s;}
+  .stagger.in > *:nth-child(3){transition-delay:.12s;}
+  .stagger.in > *:nth-child(4){transition-delay:.18s;}
+  .stagger.in > *:nth-child(5){transition-delay:.24s;}
+  .stagger.in > *:nth-child(6){transition-delay:.30s;}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:840px){
+    .links{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(max-width:720px){
+    .wrap{padding:0 18px;}
+    .board{grid-template-columns:repeat(2,1fr);}
+    .masthead .wrap{padding-bottom:12px;}
+    .hero .wrap{padding-top:36px;padding-bottom:36px;}
+    .hero-deck{margin-bottom:28px;}
+    .article{padding:48px 0 30px;}
+    section.block{margin-bottom:48px;}
+    figcaption{flex-direction:column;gap:8px;}
+    .line{grid-template-columns:1fr;gap:6px;}
+    .line .li-val{text-align:left;}
+    .pull{margin:42px auto;}
+    .pull p{font-size:clamp(1.4rem,1rem + 2vw,2.2rem);}
+    .ledger{padding:42px 0 44px;margin:42px 0;}
+    .chain{padding:52px 0 48px;}
+    .links{grid-template-columns:1fr;}
+    .rail{gap:12px;grid-auto-columns:minmax(76vw,1fr);}
+    .plate-wide{margin:32px auto;}
+    .plate-frame{padding:10px;}
+    .quote{padding:14px 14px 16px;}
+    .quote .q-val{font-size:clamp(1.4rem,1rem + 1.8vw,1.85rem);}
+    footer.doc .wrap{flex-direction:column;}
+    .dropcap::first-letter{font-size:4em;}
+  }
+  @media(max-width:430px){
+    .board{grid-template-columns:1fr 1fr;}
+    .hero .wrap{padding-top:32px;}
+    .hero h1{font-size:clamp(2rem,1.6rem + 4vw,3.2rem);max-width:100%;}
+    .hero-kicker{margin-bottom:22px;}
+    .hero-deck{font-size:1.04rem;}
+    .quote .q-label{font-size:.58rem;}
+    .quote .q-val{font-size:1.3rem;letter-spacing:-.005em;}
+    .quote .q-sub{font-size:.56rem;}
+    .masthead .wrap{flex-direction:column;align-items:flex-start;gap:6px;}
+    .masthead-meta{font-size:.6rem;letter-spacing:.14em;}
+    .ticker-track{font-size:.62rem;}
+    h2{font-size:clamp(1.55rem,1.2rem + 2.2vw,2.2rem);}
+    body{font-size:1.04rem;line-height:1.6;}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .ticker-track{animation:none;}
+    .reveal,.stagger > *{transition:none;opacity:1;transform:none;}
+    *{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Masthead ===== -->
+  <header class="masthead">
+    <div class="wrap">
+      <div class="masthead-title">The Trade &amp; Commerce of Memphis</div>
+      <div class="masthead-meta">An Editorial Feature &nbsp;·&nbsp; Second &amp; Madison &nbsp;·&nbsp; Est. 1910</div>
+    </div>
+  </header>
+
+  <!-- ===== Hero / quotation board ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-kicker eyebrow">An Annual Statement <span class="dot">·</span> <span class="yr">1910</span> &nbsp;→&nbsp; <span class="yr">2026</span></div>
+      <h1>The House That <em>Cotton</em> Built</h1>
+      <p class="hero-deck">For most of a century the Exchange Building was the engine room of the cotton capital of the world — <b>a machine for discovering price and recording trust.</b> A new generation is teaching it to do the same thing again, this time in code.</p>
+
+      <div class="board stagger reveal" aria-label="Building at a glance">
+        <div class="quote">
+          <span class="q-label">Height</span>
+          <div class="q-val">264 ft</div>
+          <div class="q-sub">Tallest in Memphis, ~20 yrs</div>
+        </div>
+        <div class="quote">
+          <span class="q-label">Stories</span>
+          <div class="q-val">XIX</div>
+          <div class="q-sub">Steel frame · caisson base</div>
+        </div>
+        <div class="quote">
+          <span class="q-label">Cost</span>
+          <div class="q-val">$1,250,000</div>
+          <div class="q-sub">Incl. value of the site</div>
+        </div>
+        <div class="quote">
+          <span class="q-label">Cotton</span>
+          <div class="q-val">~1,000,000</div>
+          <div class="q-sub">Bales received / season</div>
+        </div>
+        <div class="quote">
+          <span class="q-label">Rank</span>
+          <div class="q-val">No. 1</div>
+          <div class="q-sub">Inland spot market, world</div>
+        </div>
+        <div class="quote">
+          <span class="q-label">Listed</span>
+          <div class="q-val">1979</div>
+          <div class="q-sub">National Register · 79002474</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ticker of cotton grades ===== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="g">Good Ordinary</span><span class="sep">/</span><span class="g">Strict Good Ordinary</span><span class="sep">/</span><span class="g">Low Middling</span><span class="sep">/</span><span class="g">Strict Low Middling</span><span class="sep">/</span><span class="g">Middling</span><span class="sep">/</span><span class="g">Strict Middling</span><span class="sep">/</span><span class="g">Good Middling</span><span class="sep">/</span><span class="g">Strict Good Middling</span><span class="sep">/</span><span class="g">Middling Fair</span><span class="sep">//</span>
+      <span class="g">Good Ordinary</span><span class="sep">/</span><span class="g">Strict Good Ordinary</span><span class="sep">/</span><span class="g">Low Middling</span><span class="sep">/</span><span class="g">Strict Low Middling</span><span class="sep">/</span><span class="g">Middling</span><span class="sep">/</span><span class="g">Strict Middling</span><span class="sep">/</span><span class="g">Good Middling</span><span class="sep">/</span><span class="g">Strict Good Middling</span><span class="sep">/</span><span class="g">Middling Fair</span><span class="sep">//</span>
+    </div>
+  </div>
+
+  <!-- ===== Article ===== -->
+  <main class="article">
+    <div class="wrap">
+
+      <!-- Lede -->
+      <section class="block lede">
+        <div class="measure reveal">
+          <p class="dropcap">Cotton built Memphis, and for the better part of a century the building that proved it most plainly stood at the corner of Second and Madison. Before it was an address or an apartment, the tower was an idea: that the most important crop in the Mid-South deserved a single, commanding place where its worth could be argued and decided. They called it, with the confidence of the era, simply the Exchange Building.</p>
+          <p>By 1900 Memphis had become the largest inland spot-cotton market on earth — the place where actual bales, not paper contracts, changed hands. Each autumn the river town swelled with the new crop. Along Cotton Row on Front Street, buyers and classers judged a fistful of fiber by sight and touch, naming a grade — <em>strict low middling</em>, <em>good ordinary</em> — and sealing fortunes with a handshake. It was an economy that moved hundreds of thousands of bales a year, and it had outgrown the cramped quarters built for it a generation earlier.</p>
+        </div>
+      </section>
+
+      <!-- A marketplace worthy of it -->
+      <section class="block">
+        <div class="section-head measure reveal">
+          <span class="eyebrow">I &nbsp;·&nbsp; A marketplace worthy of it</span>
+          <h2>The exchanges resolved to build a tower equal to the trade.</h2>
+        </div>
+        <div class="measure reveal">
+          <p>The Memphis Cotton Exchange had been founded in 1874 to bring order to a booming postwar market — to set grades, publish quotations, and give the region's "white gold" a recognized home. Its first building, a four-story Romanesque structure, opened on this corner in 1885 and was soon too small for the business it served. So the Cotton Exchange joined forces with the Memphis Merchants Exchange, and together the two organizations resolved to raise something the whole country would notice.</p>
+          <p>Their own trade report did not undersell it. Writing as demolition of the old hall got underway, the Exchange announced what it promised would be as handsome a business structure as any in the entire country — nineteen stories tall, seventy-five by one hundred fifty feet, planted in the heart of the city and fronting three streets. The two exchanges would split the second floor, Merchants on the north and Cotton on the south, each with its own elevator entrance and a main door on Second Street. The cost, including the ground beneath it, came to $1,250,000, the ownership divided evenly between them.</p>
+          <p class="lead-note">From the Annual Statement: modern in every detail, with a concrete caisson foundation; stone finishings to the fourth floor and brick and terra cotta for the fifteen above; seven elevators of the latest type, three running to the basement; twenty-three offices to a floor; the architect, N. M. Woods, Jr., of Memphis. Work on tearing down the old building began December 20, 1909, with the contract calling for the new one by January 1, 1911.</p>
+        </div>
+
+        <figure class="plate-wide reveal">
+          <div class="plate-frame">
+            <div class="plate-img" data-file="IMG_6354.jpeg">
+              <img src="IMG_6354.jpeg" alt="A page from the Annual Statement of the Trade and Commerce of Memphis announcing the New Exchange Building, beside an architect's rendering of the completed tower." onerror="this.parentNode.classList.add('img-missing')" />
+            </div>
+            <figcaption>
+              <span class="plate-no">Plate 01</span>
+              <span>The announcement of the “New Exchange Building” in the <em>Annual Statement of the Trade and Commerce of Memphis</em>, set beside Neander M. Woods Jr.’s rendering of the finished tower. The notice records the $1,250,000 price and the contract to complete by New Year’s Day, 1911.<span class="cred">Memphis Merchants’ Exchange · c. 1910</span></span>
+            </figcaption>
+          </div>
+        </figure>
+      </section>
+
+      <!-- A tower rises (timeline) -->
+      <section class="block">
+        <div class="section-head measure reveal">
+          <span class="eyebrow">II &nbsp;·&nbsp; A tower rises · 1910</span>
+          <h2>Steel climbed the corner through a single Memphis year.</h2>
+        </div>
+        <div class="measure reveal timeline-intro">
+          <p>The general contractor, the Olson-Lesh Construction Company, kept a photographer named Coovert on the job, and his dated prints survive as a flip-book of the modern age arriving in Memphis. In March, the block is a pit of timber shoring and caisson work, ringed by the signs of the old neighborhood — a Delmonico delicatessen, the Barrow Laboratory, and a promise from the Merchants Power Company that the new tower would be lit by electricity. By high summer, the steel skeleton has topped out and the brick has begun its climb. What took shape in those months was a machine-age building dressed in classical clothes.</p>
+        </div>
+
+        <div class="rail reveal" aria-label="Construction timeline, 1910">
+          <div class="rail-card">
+            <div class="plate-frame">
+              <div class="rail-date">March 24, 1910 <span class="step">01 / 05</span></div>
+              <div class="plate-img" data-file="IMG_8889.jpeg">
+                <img src="IMG_8889.jpeg" alt="Excavation and timber shoring at the Exchange Building site, March 1910, with Delmonico and Barrow Laboratory signs on neighboring walls." onerror="this.parentNode.classList.add('img-missing')" />
+              </div>
+              <div class="rail-cap">The pit: caisson work and shoring, the old block still standing all around it.</div>
+            </div>
+          </div>
+          <div class="rail-card">
+            <div class="plate-frame">
+              <div class="rail-date">April 17, 1910 <span class="step">02 / 05</span></div>
+              <div class="plate-img" data-file="IMG_8891.jpeg">
+                <img src="IMG_8891.jpeg" alt="Steel framing beginning to rise at the lower floors of the Exchange Building, April 1910, derrick at center." onerror="this.parentNode.classList.add('img-missing')" />
+              </div>
+              <div class="rail-cap">First steel: the lower floors take their frame as a derrick swings overhead.</div>
+            </div>
+          </div>
+          <div class="rail-card">
+            <div class="plate-frame">
+              <div class="rail-date">May 29, 1910 <span class="step">03 / 05</span></div>
+              <div class="plate-img" data-file="IMG_8892.jpeg">
+                <img src="IMG_8892.jpeg" alt="The full steel skeleton of the Exchange Building standing against the sky, May 1910." onerror="this.parentNode.classList.add('img-missing')" />
+              </div>
+              <div class="rail-cap">The cage complete: an open lattice of steel rising the full height of the block.</div>
+            </div>
+          </div>
+          <div class="rail-card">
+            <div class="plate-frame">
+              <div class="rail-date">June 20, 1910 <span class="step">04 / 05</span></div>
+              <div class="plate-img" data-file="IMG_8893.jpeg">
+                <img src="IMG_8893.jpeg" alt="Steel frame topped out with the lowest floors clad in brick and terra cotta, June 1910." onerror="this.parentNode.classList.add('img-missing')" />
+              </div>
+              <div class="rail-cap">Skin meets bone: brick and terra cotta begin to sheathe the lower stories.</div>
+            </div>
+          </div>
+          <div class="rail-card">
+            <div class="plate-frame">
+              <div class="rail-date">August 8, 1910 <span class="step">05 / 05</span></div>
+              <div class="plate-img" data-file="IMG_8894.jpeg">
+                <img src="IMG_8894.jpeg" alt="The Exchange Building near topping out, masonry climbing well up the tower, August 1910." onerror="this.parentNode.classList.add('img-missing')" />
+              </div>
+              <div class="rail-cap">Nearly there: the masonry climbs toward the crown as the upper steel is set.</div>
+            </div>
+          </div>
+        </div>
+        <div class="measure">
+          <div class="rail-hint">↔ Drag the strip to follow the build &nbsp;·&nbsp; photographs by Coovert for Olson-Lesh Construction Co.</div>
+        </div>
+      </section>
+
+      <!-- Pull quote -->
+      <div class="pull reveal">
+        <p><span class="mark">“</span>The price a Delta farmer got, and the price a Liverpool spinner paid, both ran through this address.<span class="mark">”</span></p>
+      </div>
+
+      <!-- The floor -->
+      <section class="block">
+        <div class="section-head measure reveal">
+          <span class="eyebrow">III &nbsp;·&nbsp; Life on the floor</span>
+          <h2>Inside, a <em>second-empire</em> palace stretched to skyscraper height.</h2>
+        </div>
+        <div class="measure reveal">
+          <p>Woods did something unusual with the new scale. Rather than invent a style for the tall building, he took an old one — the Second Empire, with its mansard roofs and ordered classicism — and stacked it into the sky, dividing the facade into a base, a shaft, and a capital so the eye could take in the whole by reading its parts. A rusticated limestone base carried two-and-three-story arched windows; red brick and terra cotta climbed the long shaft; and at the crown, twin French pavilion roofs in patterned tile and copper flanked a rooftop garden. Preservationists would later call it the finest example in Memphis of an old style fitted to a new height — and the only Second Empire skyscraper in the region.</p>
+          <p>The interior matched the ambition of the trade. Through the Second Street doors lay a two-story lobby of marble floors and walls, an opera staircase, an ornate brass mailbox, and seven banks of elevators, all beneath a vaulted plaster ceiling. Off the mezzanine were the Cotton Exchange rooms — themselves two stories tall, finished in classical plasterwork, their floors laid in mosaic tile. Set into that floor was a small mosaic cotton bale, a maker's mark for the whole enterprise, which would lie hidden under later renovations until our own century uncovered it again.</p>
+          <p>The commerce itself happened in the open. Through the trading day, men on ladders chalked the moving prices across enormous blackboards, refreshing the figures several times between morning and close while buyers and sellers called their bids aloud across a room thick with the season's business. Word of a government crop report or a swing in the market reached this floor before it reached anywhere else in the Mid-South. Sixteen floors up, the building kept a different kind of society: the eighteenth and nineteenth stories housed the Exchange Club and a ballroom, home to the Chickasaw Guards — a drill company turned social institution whose full-dress military balls were among the events of the Memphis calendar.</p>
+        </div>
+
+        <figure class="plate-wide reveal">
+          <div class="plate-frame">
+            <div class="plate-img" data-file="IMG_6064.jpeg">
+              <img src="IMG_6064.jpeg" alt="Street-level view of the Exchange Building's stone base, with the gilded Phil A. Halle men's wear storefront and 1920s automobiles at the curb." onerror="this.parentNode.classList.add('img-missing')" />
+            </div>
+            <figcaption>
+              <span class="plate-no">Plate 02</span>
+              <span>Commerce at street level: the building’s rusticated stone base with its great arched windows, the gilded signage of Phil A. Halle men’s wear along the sidewalk, and roadsters drawn up at the curb in the building’s mercantile prime.<span class="cred">Downtown Memphis · 1920s (later colorized)</span></span>
+            </figcaption>
+          </div>
+        </figure>
+      </section>
+
+      <!-- The numbers / ledger -->
+    </div>
+
+    <section class="ledger reveal">
+      <div class="wrap">
+        <div class="section-head measure">
+          <span class="eyebrow">IV &nbsp;·&nbsp; The statement of account</span>
+          <h2 style="max-width:22ch;">What the building <em>presided over</em></h2>
+        </div>
+        <div class="measure ledger-intro">
+          <p>Drawn from the Exchange's own annual statements of the trade and commerce of Memphis across the years on either side of the tower's opening, and from the standard compilations of the day, the ledger of that era reads less like a city's accounts than a region's. These were the flows the floor existed to price.</p>
+        </div>
+
+        <div class="measure">
+          <div class="statement">
+            <div class="line">
+              <div class="li-term">Rank among cotton markets <small>Spot — actual bales handled</small></div>
+              <div class="li-val">Largest, world</div>
+            </div>
+            <div class="line">
+              <div class="li-term">Cotton received at Memphis <small>Per season, early 1900s–1910s</small></div>
+              <div class="li-val">700,000–1,000,000+ bales</div>
+            </div>
+            <div class="line">
+              <div class="li-term">Share of the U.S. crop moving through Memphis houses <small>Sold via local concerns</small></div>
+              <div class="li-val">Over one-half</div>
+            </div>
+            <div class="line">
+              <div class="li-term">Short-fibre &amp; linters market <small>Cotton-seed fibre, mill stock</small></div>
+              <div class="li-val">First in the nation</div>
+            </div>
+            <div class="line">
+              <div class="li-term">Hardwood lumber <small>Memphis as distribution centre</small></div>
+              <div class="li-val">≈ 2 billion board ft / yr</div>
+            </div>
+            <div class="line">
+              <div class="li-term">Foreign exports through the district <small>Incl. ~¾ million bales &amp; 5,000 cars of lumber</small></div>
+              <div class="li-val">≈ $100,000,000 / yr</div>
+            </div>
+            <div class="line">
+              <div class="li-term">City population <small>Federal census</small></div>
+              <div class="li-val">102,320 → 131,105</div>
+            </div>
+          </div>
+          <div class="statement-foot">
+            Figures compiled from the Annual Statement of the Trade &amp; Commerce of Memphis (Merchants’ Exchange) and contemporaneous references of 1900–1920. Year-by-year totals vary with the size of each crop; values are of the period.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+
+      <!-- The long middle -->
+      <section class="block">
+        <div class="section-head measure reveal">
+          <span class="eyebrow">V &nbsp;·&nbsp; The long middle</span>
+          <h2>The trade dispersed; the tower endured.</h2>
+        </div>
+        <div class="measure reveal">
+          <p>Power has a way of outgrowing even the rooms built for it. By the mid-1920s the Cotton Exchange had grown numerous and influential enough to want a hall of its own, and it decamped a few blocks west to a new building on Union, leaving the Merchants Exchange — soon the Chamber of Commerce — behind. In 1930 the Sterick Building rose higher and ended the Exchange's long reign as the tallest thing in Memphis. The floors filled instead with the connective tissue of a trading city: by the early 1930s, more than forty railroad and steamboat offices kept rooms here, the Illinois Central and the Missouri Pacific among them, alongside the attorneys drawn by the nearby courthouse and the doctors lured, the early advertisements promised, by the clear air of Court Square.</p>
+          <p>Time worked on the building as it works on everything. The copper roofs went green. In 1937 the soaring lobby vault was closed off behind a lower ceiling. Urban renewal in the 1980s gutted the interior offices for a housing plan that a change in the tax law promptly stranded, and the tower stood empty. A 1990s conversion finally turned the shell into apartments — and then, mismanaged and caught by a falling market, fell into foreclosure in 2009. The grande dame, copper-roofed and quiet, waited on the corner with an "Under New Management" sign in the glass.</p>
+        </div>
+
+        <figure class="plate-wide reveal">
+          <div class="plate-frame">
+            <div class="plate-img" data-file="IMG_6061.jpeg">
+              <img src="IMG_6061.jpeg" alt="Mid-twentieth-century color view of the Exchange Building with its copper mansard roof gone green, a 'Welcome' globe sign and period automobiles in the foreground." onerror="this.parentNode.classList.add('img-missing')" />
+            </div>
+            <figcaption>
+              <span class="plate-no">Plate 03</span>
+              <span>Mid-century: the copper crown weathered to verdigris above a downtown of streetcars-turned-sedans, the tower still presiding over its corner decades after the cotton men first filled its floors.<span class="cred">Downtown Memphis · mid-20th century</span></span>
+            </figcaption>
+          </div>
+        </figure>
+      </section>
+
+      <!-- A new chapter -->
+      <section class="block">
+        <div class="section-head measure reveal">
+          <span class="eyebrow">VI &nbsp;·&nbsp; A new chapter</span>
+          <h2>A family from a cotton country bought the cotton tower.</h2>
+        </div>
+        <div class="measure reveal">
+          <p>The next stewards arrived, improbably, from the cotton country of Central Asia. The Umarov family — physicists and entrepreneurs from Uzbekistan — had built and then lost almost everything they owned to political persecution at home; the family's patriarch was imprisoned for challenging an authoritarian government and freed only after a years-long international campaign. They had come to Memphis in part because it was the cotton capital, and when the chance came to buy the Exchange Building, the thread was impossible to miss. They unlocked its doors just before Christmas in 2010 to find the place full of garbage — and began, room by room, to bring it back.</p>
+          <p>Restoration uncovered the mosaic cotton bale on the old trading-floor mezzanine, intact under the years. When a neighboring building came down and exposed the tower's west wall, the family commissioned the Memphis artist Michael "Birdcap" Roy to cover it with a vast mural, <em>Grow N Grind</em> — a riff on the city's own mantra of enduring and growing through hardship, which is more or less the family's biography. The trading floor had gone silent generations earlier. But the building was, once again, full of people choosing to make a future in it.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Forward: the chain to come -->
+    <section class="chain reveal">
+      <div class="wrap">
+        <div class="section-head measure">
+          <span class="eyebrow">VII &nbsp;·&nbsp; The ledger, rewritten</span>
+          <h2>An information machine, taught a new language.</h2>
+        </div>
+        <div class="measure">
+          <p>Strip the marble and the mansards away and ask what this building actually <i>did</i>, and the answer is startlingly modern. It discovered prices. It verified quality through a trusted system of grades. It recorded who owned what, and moved that record faster and more reliably than any rival in the region. The Exchange Building was, in the plainest sense, an information machine — and the handshake on its floor was a contract whose enforcement was trust.</p>
+          <p>Those are precisely the problems the present generation of technology is built to solve. <b>A blockchain is a shared, tamper-evident ledger</b> — a way for strangers to agree on ownership and provenance without a middleman, which is the digital descendant of a classer's grade and a clerk's book. <b>Modern AI is a way to read the market's noise and find its signal</b>, the work those men on the ladders did with chalk, now done at the speed of light. The building that taught Memphis to trust a number and a name is a natural home for the tools that do the same thing in code.</p>
+          <p>Its current owner is already living in that future. He minted the west-wall mural as an NFT — calling it the world's largest — and seeded it with a fund of cryptocurrency whose returns flow to St. Jude Children's Research Hospital. Stand at the wall with the right app and a chip embedded in the building hands you a token, a digital "I was here." He convened a local blockchain society in the tower's shadow to teach the city the technology. The address is, quietly, becoming a node.</p>
+        </div>
+
+        <div class="links measure" style="max-width:1000px;">
+          <div class="link-cell">
+            <span class="lc-no">Link 01 — Provenance</span>
+            <h3>A landmark on-chain</h3>
+            <p>The building's own history — its deeds, its restoration record, its archive of Coovert plates — recorded as a permanent, verifiable provenance ledger that no fire or foreclosure can erase.</p>
+          </div>
+          <div class="link-cell">
+            <span class="lc-no">Link 02 — Ownership</span>
+            <h3>Tokenized stakes</h3>
+            <p>The old exchanges split ownership down the middle between two trades. Tokenization could split a real-world landmark into fractional, tradeable stakes — letting a city co-own the building that built it.</p>
+          </div>
+          <div class="link-cell">
+            <span class="lc-no">Link 03 — Intelligence</span>
+            <h3>The building, thinking</h3>
+            <p>AI-run energy, climate, and access systems threaded through a 1910 frame, with an always-on concierge for residents — the chalk-board, refreshed not four times a day but continuously.</p>
+          </div>
+          <div class="link-cell">
+            <span class="lc-no">Link 04 — The floor, again</span>
+            <h3>A new trading room</h3>
+            <p>The mezzanine that once priced cotton, reimagined as a gathering place for the digital-asset and commodity communities — the handshake reborn as a smart contract, in the room built for it.</p>
+          </div>
+        </div>
+
+        <div class="measure">
+          <p class="caveat">A word of sobriety: these are possibilities, not press releases. The technology is young and its hype runs ahead of its proof. But the function is old — and it is exactly the function this building was raised to perform.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coda -->
+    <div class="wrap">
+      <section class="coda">
+        <div class="measure reveal">
+          <p>On the grand staircase, a brass lion still keeps its watch, as it has since 1910. The blackboards are gone and the price calls have faded, but the mosaic bale is back in the floor and the lights are on every night in two hundred homes stacked inside the old exchange. The trade that named this place has scattered across the world. The address has not moved, and it still means what it always did.</p>
+        </div>
+
+        <figure class="plate-wide reveal">
+          <div class="plate-frame">
+            <div class="plate-img" data-file="IMG_6058.jpeg">
+              <img src="IMG_6058.jpeg" alt="The fully restored Exchange Building today: red brick and terra cotta over a white stone base, twin mansard pavilions and copper dormers crowning the tower against a blue sky." onerror="this.parentNode.classList.add('img-missing')" />
+            </div>
+            <figcaption>
+              <span class="plate-no">Plate 04</span>
+              <span>The Exchange Building today — limestone base, terra-cotta shaft, and its twin mansard crown restored above Second Street. More than a century on, it remains, in its owners’ phrase, the center of it all.<span class="cred">9 North Second Street · present day</span></span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="measure">
+          <div class="sign">— The Trade &amp; Commerce of Memphis · 1910 → 2026 —</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="doc">
+    <div class="wrap">
+      <div class="colophon">
+        <b>About this feature.</b> The Exchange Building (historically the Memphis Merchants Exchange), 9 North Second Street at Madison Avenue. Architect Neander M. Woods, Jr.; general contractor Olson-Lesh Construction Co.; construction photography by Coovert, 1910. Opened 1910; listed on the National Register of Historic Places, May 8, 1979 (ref. 79002474). Statistical portrait drawn from the Annual Statement of the Trade &amp; Commerce of Memphis and period references.
+      </div>
+      <div class="sources">
+        <span>Sources consulted</span>
+        Annual Statement of the Trade &amp; Commerce of Memphis (Merchants’ Exchange)<br>
+        National Register nomination, NPS / Memphis Landmarks Commission<br>
+        Memphis magazine — “Weaving New Life into a Landmark”<br>
+        Memphis Heritage · Tennessee Encyclopedia · The Cotton Museum<br>
+        exchangesuites.com — house history
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gentle scroll-reveal, respecting reduced-motion.
+    (function(){
+      var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var els = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+      if(rm || !('IntersectionObserver' in window)){
+        els.forEach(function(el){ el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      },{ rootMargin:'0px 0px -8% 0px', threshold:0.12 });
+      els.forEach(function(el){ io.observe(el); });
+
+      // Reveal the hero board shortly after load.
+      window.addEventListener('load', function(){
+        var board = document.querySelector('.hero .board');
+        if(board){ setTimeout(function(){ board.classList.add('in'); }, 220); }
+      });
+    })();
+  </script>
+</body>
+</html>
